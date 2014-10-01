@@ -5,7 +5,21 @@ def defuse_bomb()
   puts "then cut the blue wire"
 end
 
+# a more useful defuse bomb method
+
+def defuse_bomb(time_left)
+  if time_left > 60
+    puts "remove the cover"
+    puts "first cut the red wire"
+    puts "then cut the blue wire"
+  else
+    puts "err run"
+  end
+end    
+
 # defuse_bomb()
+
+# defuse_bomb(150)
 
 def area(length, width)
   return length * width
@@ -38,6 +52,8 @@ end
 def square(number)
   number * number
 end
+
+
 
 
 

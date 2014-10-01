@@ -64,6 +64,21 @@ puts "lift off"
 
 
 
+count = 10
+
+while count > 0
+  puts "bottle number #{ count }"
+  count = count - 1
+end
+puts "=============="
+
+10.downto(0) do |num|
+  puts num
+end
+
+
+
+
 
 
 
