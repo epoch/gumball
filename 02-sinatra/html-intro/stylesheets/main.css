@@ -3,7 +3,7 @@ body {
 }
 
 .container {
-  max-width: 760px;
+  max-width: 780px;
   margin: 0 auto; /* center */
 }
 
@@ -11,6 +11,15 @@ body {
   font-size: 500%;
   text-align: center;
   text-shadow: 0 0 5px black;
+}
+
+.banner {
+  width: 100%;
+}
+
+.banner img {
+  max-width: 100%;
+  height: auto;
 }
 
 .menu li {
