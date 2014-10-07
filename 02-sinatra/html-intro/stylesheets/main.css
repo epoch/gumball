@@ -1,0 +1,32 @@
+body {
+  background-color: pink;
+}
+
+.container {
+  max-width: 760px;
+  margin: 0 auto; /* center */
+}
+
+#logo {
+  font-size: 500%;
+  text-align: center;
+  text-shadow: 0 0 5px black;
+}
+
+.menu li {
+  display: inline;
+  padding: 0 20px;
+}
+
+article h1 {
+  background-color: orange;
+  margin-top: 60px;
+  padding: 30px;
+  border-radius: 10px;
+  font-size: 200%;
+}
+
+footer {
+  text-align: right;
+  color: black;
+}
