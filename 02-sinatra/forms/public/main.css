@@ -1,0 +1,19 @@
+body {
+  max-width: 600px;
+  margin 0 auto;
+}
+
+label {
+  min-width: 155px;
+  display: inline-block;
+  text-align: right;
+}
+
+img {
+  max-width: 100%;
+}
+
+/*body {
+  background: url('cat.jpg') no-repeat center center fixed;
+  background-size: cover;
+}*/
