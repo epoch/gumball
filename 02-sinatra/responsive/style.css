@@ -1,0 +1,46 @@
+body {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+img {
+  float: left;
+  max-width: 100%
+}
+
+.class {
+  font-size: 1em;
+}
+
+.span-1, .span-2, .span-3 {
+  min-height: 100px;
+  float: left;
+  margin-right: 1.66666%; /* 10 / 600 */
+  margin-bottom: 10px;
+  width: 98.33333%;
+}
+
+.span-1 {
+  background-color: red;
+  /* width: 31.66666%; /* 190 / 600 */
+}
+
+.span-2 {
+  background-color: blue;
+  /* width: 65%; /* 390 / 600 */
+}
+
+.span-3 {
+  background-color: pink;
+  /* width: 98.33333%;  /* 590 / 600 */
+}
+
+@media all and (min-width: 35em) {
+  .span-1 {
+    width: 31.66666%;
+  }
+
+  .span-2 {
+    width: 65%;
+  }
+}
