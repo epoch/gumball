@@ -25,6 +25,38 @@
       <input type="date" name="start_time" id="what_time">
     </div>
 
+    <div class="input-group">
+      <label for="what_time">Start time:</label>
+      <input type="time" name="start_time" id="what_time">
+    </div>
+
+    <input type="hidden" name="whatever" value="kellogs">
+
+    <div class="input-group">
+      <label for="size_menu">Size:</label>
+      <select name="size" id="size_menu">
+        <option value="s">Small</option>
+        <option value="m">Medium</option>
+        <option value="l">Large</option>
+        <option value="xl">Extra large</option>
+      </select>
+    </div>
+
+    <div class="input-group">
+      <p>Should Scotland be an independent country?</p>
+      <label for="independence_question_yes">Yes</label>
+      <input type="radio" id="independence_question_yes" name="independence2" value="y">
+      <label for="independence_question_no">No</label>
+      <input type="radio" id="independence_question_no" name="independence2" value="n">
+    </div>
+
+    <div class="input-group">
+      <label for="">Which of these genres is awful?</label>
+      <input type="checkbox" name="awful_genre" value="country" checked>Country
+      <input type="checkbox" name="awful_genre" value="dnb" checked>Drum and Bass
+      <input type="checkbox" name="awful_genre" value="dance" checked>Dance
+    </div>    
+
     <button>Send to the server</button>
 
   </form>
