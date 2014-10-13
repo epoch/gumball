@@ -1,0 +1,8 @@
+<h1>Home</h1>
+
+<% @result.each do |row| %>
+
+<p><a href="/dishes/<%= row['id'] %>"><%= row['name'] %></a></p>
+<img src="<%= row['image_url'] %>" alt="">
+
+<% end %>
