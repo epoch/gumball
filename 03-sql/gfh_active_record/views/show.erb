@@ -1,0 +1,11 @@
+<h2>show details</h2>
+
+<p><%= @dish.name %></p>
+<img src="<%= @dish.image_url %>" alt="dish">
+
+<form action="/dishes/<%= @dish.id %>/delete" method="post">
+  <button>Delete</button>
+</form>
+
+<a href="/dishes/<%= @dish.id %>/edit">Edit</a>
+

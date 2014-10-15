@@ -1,0 +1,12 @@
+
+<h1 class="title">Find Dishes</h1>
+
+<p class="new-link"><a href="/dishes/new">New Dish</a></p>  
+
+<% @dishes.each do |dish| %>
+<article>
+  <div class="image"><a href="/dishes/<%= dish.id %>"><img src="<%= dish.image_url %>" alt=""></a></div>
+  <div><a href="/dishes/<%= dish.id %>"><%= dish.name %></a> &#10084;</div>
+</article>
+<% end %>
+

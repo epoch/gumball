@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Good food hunting</title>
+  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/stylesheets/main.css">
+</head>
+<body>
+  <div class="container">
+    <ul>
+        <li><a href="/">All</a></li>
+      <% @meal_types.each do |meal_type| %>
+        <li><a href="/?meal_type=<%= meal_type %>"><%= meal_type %></a></li>
+      <% end %>  
+    </ul>
+
+    <h3>Good Food Hunting</h3>
+    <%= yield %>
+  </div>
+</body>
+</html>
