@@ -3,10 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <title>Good food hunting</title>
+  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/stylesheets/main.css">
 </head>
 <body>
-  <%= yield %>
+  <div class="container">
+    <ul>
+        <li><a href="/">All</a></li>
+      <% @meal_types.each do |row| %>
+        <li><a href="/?meal_type=<%= row['meal_type'] %>"><%= row['meal_type'] %></a></li>
+      <% end %>  
+    </ul>
 
-  <footer>&copy; DT - noone steals my idea you jerks</footer>
+    <h3>Good Food Hunting</h3>
+    <%= yield %>
+  </div>
 </body>
 </html>

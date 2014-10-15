@@ -1,12 +1,12 @@
 <h2>edit dish</h2>
 
-<form action="/dishes/<%= @result['id'] %>" method="post">
+<form action="/dishes/<%= @row['id'] %>" method="post">
   <label for="">Name</label>
-  <input type="text" name="name" value="<%= @result['name'] %>"><br/>
+  <input type="text" name="name" value="<%= @row['name'] %>"><br/>
   <label for="">Image URL</label>
-  <input type="text" name="image_url" value="<%= @result['image_url'] %>"><br/>
+  <input type="text" name="image_url" value="<%= @row['image_url'] %>"><br/>
   <label for="">Meal Type</label>
-  <input type="text" name="meal_type" value="<%= @result['meal_type'] %>"><br/>
+  <input type="text" name="meal_type" value="<%= @row['meal_type'] %>"><br/>
 
   <button>update</button>
 </form>

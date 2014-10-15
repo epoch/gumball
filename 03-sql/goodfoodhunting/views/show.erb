@@ -1,5 +1,13 @@
 <h2>show details</h2>
 
-<% @result.each do |row| %>
+<% @rows.each do |row| %>
   <p><%= row['name'] %></p>
+  <img src="<%= row['image_url'] %>" alt="dish">
+
+  <form action="/dishes/<%= row['id'] %>/delete" method="post">
+    <button>Delete</button>
+  </form>
+
+  <a href="/dishes/<%= row['id'] %>/edit">Edit</a>
+
 <% end %>

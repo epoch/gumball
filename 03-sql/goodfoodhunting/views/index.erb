@@ -1,8 +1,12 @@
-<h1>Home</h1>
 
-<% @result.each do |row| %>
+<h1 class="title">Find Dishes</h1>
 
-<p><a href="/dishes/<%= row['id'] %>"><%= row['name'] %></a></p>
-<img src="<%= row['image_url'] %>" alt="">
+<p class="new-link"><a href="/dishes/new">New Dish</a></p>  
 
+<% @rows.each do |row| %>
+<article>
+  <div class="image"><a href="/dishes/<%= row['id'] %>"><img src="<%= row['image_url'] %>" alt=""></a></div>
+  <div><a href="/dishes/<%= row['id'] %>"><%= row['name'] %></a> &#10084;</div>
+</article>
 <% end %>
+

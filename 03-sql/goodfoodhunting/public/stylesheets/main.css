@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  display: inline-block;
+  margin-right: 1em;
+}
+
+article {
+  display: inline-block;
+  max-width: 24%;
+  height: 300px;
+  vertical-align: top;
+}
+
+img {
+  max-width: 100%;
+}

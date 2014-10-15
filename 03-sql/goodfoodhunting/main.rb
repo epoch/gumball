@@ -3,22 +3,39 @@ require 'sinatra'
 require 'pg'
 require 'pry'
 
+before do
+  @meal_types = run_sql("SELECT DISTINCT meal_type FROM dishes;")
+end
+
 get '/' do
-  sql = "select * from dishes;"
-  @result = run_sql(sql)
+  meal_type = params[:meal_type]
+  if meal_type
+    sql = "select * from dishes where meal_type = '#{meal_type}';"
+  else
+    sql = "select * from dishes;"
+  end
+
+  @rows = run_sql(sql)
   erb :index
 end
 
 get '/dishes' do
-  # sql = "select * from dishes;"
-  @result = run_sql("select * from dishes;")
+  @rows = run_sql("select * from dishes;")
+  binding.pry
   erb :index
 end
 
+post '/dishes/:id/delete' do
+  sql = "DELETE FROM dishes WHERE id = #{params[:id]}"
+  run_sql(sql)
+  redirect to('/')
+end
+
+
 get '/dishes/:id/edit' do
   sql = "SELECT * FROM dishes WHERE id = #{params[:id]}"
-  @results = run_sql(sql)
-  @result = @results[0]
+  @rows = run_sql(sql) # plural because the method always return a collection
+  @row = @rows.first # pluck the first row out
   erb :edit
 end
 
@@ -34,7 +51,7 @@ end
 
 get '/dishes/:id' do
   sql = "select * from dishes where id = #{params[:id]}"
-  @result = run_sql(sql)
+  @rows = run_sql(sql)
   erb :show
 end
 
@@ -45,9 +62,14 @@ post '/dishes' do
   redirect to('/')
 end
 
+get '/routes' do
+  @routes = Sinatra::Application.routes
+  erb :routes
+end
+
 def run_sql(sql)
-  db = PG.connect(:dbname => 'goodfoodhunting')
-  result = db.exec(sql)
+  db = PG.connect(:dbname => 'goodfoodhunting') # database name
+  rows = db.exec(sql)
   db.close
-  return result
+  return rows
 end
