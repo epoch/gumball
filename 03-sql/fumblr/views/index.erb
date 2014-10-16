@@ -1,0 +1,6 @@
+<h1>hello world</h1>
+
+<% @posts.each do |post| %>
+  <p><a href="/posts/<%= post.id %>"><%= post.title %></a></p>
+  <p><%= post.created_at.to_s(:short) %></p>
+<% end %>
