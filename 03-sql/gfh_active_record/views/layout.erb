@@ -11,7 +11,7 @@
     <ul>
         <li><a href="/">All</a></li>
       <% @meal_types.each do |meal_type| %>
-        <li><a href="/?meal_type=<%= meal_type %>"><%= meal_type %></a></li>
+        <li><a href="/?meal_type_id=<%= meal_type.id %>"><%= meal_type.name %></a></li>
       <% end %>  
     </ul>
 

@@ -11,12 +11,15 @@ ActiveRecord::Base.establish_connection(
 )
 
 class Dish < ActiveRecord::Base
+  belongs_to :meal_type # from activerecord
 end
 
-binding.pry
+class MealType < ActiveRecord::Base
+  has_many :dishes
+end
 
 before do
-  @meal_types = Dish.pluck(:meal_type).uniq
+  @meal_types = MealType.all
 end
 
 after do
@@ -24,8 +27,11 @@ after do
 end
 
 get '/' do
-  if params[:meal_type] && !params[:meal_type].empty?
-    @dishes = Dish.where(:meal_type => params[:meal_type])
+  if params[:meal_type_id] && !params[:meal_type_id].empty?
+    @dishes = Dish.where(:meal_type_id => params[:meal_type_id])
+
+    # meal_type = MealType.find(params[:meal_type_id])
+    # @dishes = meal_type.dishes
   else
     @dishes = Dish.all
   end
@@ -46,6 +52,7 @@ end
 
 get '/dishes/:id/edit' do
   @dish = Dish.find(params[:id])
+  @meal_types = MealType.all
   erb :edit
 end
 
@@ -53,7 +60,7 @@ post '/dishes/:id' do
   dish = Dish.find(params[:id])
   dish.name = params[:name]
   dish.image_url = params[:image_url]
-  dish.meal_type = params[:meal_type]
+  dish.meal_type_id = params[:meal_type_id]
   dish.save
   redirect to("/dishes/#{params[:id]}")
 end
@@ -71,7 +78,7 @@ post '/dishes' do
   dish = Dish.new
   dish.name = params[:name]
   dish.image_url = params[:image_url]
-  dish.meal_type = params[:meal_type]
+  dish.meal_type_id = params[:meal_type_id]
   dish.save
   redirect to('/')
 end
