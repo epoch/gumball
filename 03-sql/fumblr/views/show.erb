@@ -3,3 +3,5 @@
 <p><%= @post.content %></p>
 
 <a href="/posts/<%= @post.id %>/edit">Edit</a>
+
+<%= link_to "Edit", "/posts/#{@post.id}" %>

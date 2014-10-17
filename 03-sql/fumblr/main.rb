@@ -11,7 +11,18 @@ config = {
 
 ActiveRecord::Base.establish_connection(config)
 
-class Post < ActiveRecord::Base
+require_relative './models/post'
+
+helpers do
+
+  def exists?(param)
+    param && !param.empty?
+  end
+
+  def link_to(label, route)
+    "<a href='#{route}'>#{label}</a>"
+  end
+
 end
 
 after do
