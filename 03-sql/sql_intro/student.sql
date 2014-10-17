@@ -9,6 +9,11 @@ CREATE TABLE students
   gpa FLOAT8
 );
 
+CREATE TABLE courses (
+  id SERIAL4 PRIMARY KEY,
+  name TEXT NOT NULL
+)
+
 INSERT INTO students (first,last,dob,gpa) VALUES ('bill','jones','1/1/1990',3.3);
 INSERT INTO students (first,last,dob,gpa) VALUES ('janet','jones','2/1/1980',3.7);
 INSERT INTO students (first,last,dob,gpa) VALUES ('jill','smith','2/1/1980',3.5);
