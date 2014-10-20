@@ -1,0 +1,15 @@
+<%= form_tag "/posts/#{@post.id}" do %>  
+  <p>
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" value="<%= @post.name %>">
+  </p>
+  <p>
+    <label for="">Image URL</label>
+    <input type="text" name="image_url" value="<%= @post.image_url %>">
+  </p>
+  <p>
+    <label for="">Content</label>
+    <textarea name="content" id=""><%= @post.content %></textarea>    
+  </p>
+  <button>fumble it!</button>
+<% end %>
