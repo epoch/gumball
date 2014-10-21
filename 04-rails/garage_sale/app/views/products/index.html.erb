@@ -1,0 +1,9 @@
+<h1>All products</h1>
+
+<% @products.each do |product| %>
+  <p><%= product.id %></p>
+  <p><%= product.name %></p>
+  <p><%= link_to 'delete', product, :method => :delete, :data => { :confirm => 'are you sure?' } %></p>
+  <p><%= link_to 'show', product %></p>
+  <p><%= link_to 'edit', [:edit, product] %></p>
+<% end %>

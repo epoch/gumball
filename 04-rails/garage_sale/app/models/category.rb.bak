@@ -1,0 +1,7 @@
+class Category
+
+  def self.all
+    ['weapon', 'stuff', 'cool stuff']
+  end
+
+end
