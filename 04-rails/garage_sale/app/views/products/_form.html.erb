@@ -10,7 +10,8 @@
   </p>
   <p>
     <label for="">Category</label>
-    <%= f.select :category, @categories %>
+    <%= f.collection_select :category_id, @categories, :id, :name %>
+    <%#= f.select :category_id, @categories.map {|cat| [cat.name, cat.id]} %>
   </p>
 
   <button>Go</button>
