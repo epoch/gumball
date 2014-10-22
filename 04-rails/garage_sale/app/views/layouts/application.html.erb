@@ -11,6 +11,11 @@
 <ul>
   <li><%= link_to 'home', root_path %></li>
   <li><%= link_to 'products', products_path %></li>
+  <% if logged_in? %>  
+  <li><%= link_to 'logout', login_path, :method => :delete, :data => { :confirm => 'are you sure?' } %></li>
+  <% else %>
+  <li><%= link_to 'login', login_path %></li>
+  <% end %>
 </ul>
 
 <%= yield %>

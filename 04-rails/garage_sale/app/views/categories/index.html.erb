@@ -1,0 +1,7 @@
+<h1>Categories#index</h1>
+
+<% @categories.each do |category| %>
+  <p><%= category.name %></p>
+<% end %>
+
+<%= link_to 'new category', new_category_path() %>
