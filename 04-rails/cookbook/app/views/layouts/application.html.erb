@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cookbook</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div class="container">
+    
+    <nav>
+      <ul class="nav nav-tabs">
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'Books', books_path %></li>
+        <li><%= link_to 'Recipes', recipes_path %></li>
+        <li><%= link_to 'Ingredients', ingredients_path %></li>
+        <% if logged_in? %>
+        <li><%= link_to 'Logout', logout_path, :method => :delete %></li>
+        <% end %>
+      </ul>  
+    </nav>
+
+    <% flash.each do |key,value| %>
+      <div class="alert alert-info alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <%= value %>
+      </div>
+    <% end %>
+
+    <%= yield %>
+
+  </div>
+</body>
+</html>

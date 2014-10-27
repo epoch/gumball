@@ -1,0 +1,6 @@
+<h1>Books List</h1>
+
+<% @books.each do |book| %>
+  <p><%= link_to book.title, book %> &nbsp;&nbsp;  
+  <a href="<%= edit_book_path(book) %>"><span class="glyphicon glyphicon-edit"></span></a></p>
+<% end %>

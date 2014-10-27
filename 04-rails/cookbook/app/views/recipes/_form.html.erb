@@ -1,0 +1,31 @@
+<%= form_for @recipe do |f| %>
+
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :book_id %>
+    <%= f.collection_select :book_id, @books, :id, :title %>
+  </p>
+  <p>
+    <%= f.label :meal_type %>
+    <%= f.select :meal_type, Recipe.meal_types %>
+  </p>
+  <p>
+    <%= f.label :cooktime %>
+    <%= f.number_field :cooktime %>
+  </p>
+
+  <p>
+    <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %>
+    <%#= f.text_field :ingredient_ids %>
+  </p>
+
+  <p>
+    <%= f.label :image_url, 'image_url' %>
+    <%= f.text_field :image_url %>
+  </p>
+  <button>booook</button>
+
+<% end %>

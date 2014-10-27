@@ -1,0 +1,10 @@
+<h1><%= @recipe.name %></h1>
+
+<p>cook time <%= @recipe.cooktime %> minutes</p>
+
+
+<h2>Ingredients:</h2>
+
+<% @recipe.ingredients.each do |ingredient| %>
+  <p><%= ingredient.name %></p>
+<% end %>
