@@ -29,3 +29,26 @@ r2 = Recipe.new name: 'Rail pudding', meal_type: 'dessert', cooktime: 15
 r2.ingredients << Ingredient.find_by(name: 'magic beans')
 r2.book = b1
 r2.save
+
+
+CSV.foreach('./occasion.csv') do |csv|
+
+  o = Occasion.new(name: csv[0]) # new occasion
+
+  1.upto(csv.size-1) do |col_num| # looping through all drinks for this occasion
+    if !csv[col_num].present? # if not empty
+
+      if drink = Drink.find_by(name: csv[col_num]) # if a matching drink is found
+        o.drinks << drink
+      end
+
+    end
+  end
+
+  o.save
+  
+end
+
+
+
+
