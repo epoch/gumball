@@ -1,0 +1,84 @@
+<h1>Todor</h1>
+
+<%= form_for Task.new, :remote => true do |f| %>
+  <%= f.label :description %>
+  <%= f.text_field :description%>
+  <%= f.submit %>
+<% end %>
+
+<ul id="tasks">
+</ul>
+
+<script>
+
+  var appendTask = function(task) {
+    var $li = $('<li>')
+      .attr('data-id',task.id)
+      .html(task.description);
+
+      console.log(task);
+    if (task.completed) {
+      $li.addClass('completed');
+    }
+
+    $('#tasks').append($li);  
+  };
+
+  var fetchTask = function() {
+
+    $.ajax({
+      url: '/tasks.json',
+      dataType: 'json'
+    }).done(function(data) {
+      $(data).each(function(index, task) {
+        appendTask(task);
+      })
+    });
+
+  }; // end fetchTask
+
+  $('#new_task').on('ajax:success', function(evt, task) {
+    $('#task_description').val('');
+    appendTask(task);
+  });
+
+  $('#tasks').on('click', 'li', function() {
+    var $li = $(this);
+
+    $.ajax({       
+      url: '/tasks/' + $li.attr('data-id') + '/complete'
+    }).done(function() {
+      $li.toggleClass('completed');
+    });
+  });
+
+  fetchTask();
+
+/*  
+  $('#new_task').on('submit', function(event){
+    console.log('leave it to me!!!!')
+    event.preventDefault(); // stop!!!
+
+    var formData = new FormData();
+    formData.append('description', $('#task_description').val());
+
+    $.ajax({
+      url: '/tasks',
+      type: 'POST',
+      processData: false,
+      contentType: false,
+      data: formData 
+    }).done(function(data) {
+      console.log(data);
+
+      var task = $('<li>').html(data.description);
+      $('#tasks').append(task);
+
+    }).fail(function() {
+      console.log('you fail');
+    });
+
+  });
+*/
+</script>
+
