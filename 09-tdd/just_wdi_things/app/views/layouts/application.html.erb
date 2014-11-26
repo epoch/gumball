@@ -10,11 +10,15 @@
 <%= yield %>
 
 <script type="template/handlebars" id="quoteItemView">
-  <p>{{ body }} <span>{{ author }}</span></p>
+  <p>{{ body }} <span>{{ author }}</span> <a class="del" href="">Delete</a></p>
 </script>
 
 <script>
   var App = {};
+  App.Views = {};
+  App.Models = {};
+  App.Collections = {};
+
 </script>
 <%= javascript_include_tag 'application' %>
 </body>

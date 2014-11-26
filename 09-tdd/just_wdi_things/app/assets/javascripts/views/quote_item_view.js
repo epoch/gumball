@@ -1,30 +1,35 @@
 var App = App || {};
 
-App.QuoteItemView = Backbone.View.extend({
+App.Views.QuoteItemView = Backbone.View.extend({
 
   tagName: 'li',
   events: {
-    'click': 'selectQuote'
+    'click': 'selectQuote',
+    'click .del': 'deleteQuote'
   },
 
-  hey: function() {
-    console.log('sdfsdf');
+  initialize: function() {
+    this.listenTo(this.model, 'change', this.render);
+  },
+
+  deleteQuote: function(event) {
+    event.preventDefault();
+
+    this.model.destroy();
+    this.remove();
   },
 
   render: function() {
     var template = $('#quoteItemView').html();
     var quoteItemHTML = Handlebars.compile(template);
 
-    this.$el.html(quoteItemHTML({ 
-      'body': this.model.body,
-      'author': this.model.author 
-    }));
+    this.$el.html(quoteItemHTML( this.model.toJSON() )); 
     return this;
   },
 
   selectQuote: function() {
     this.$el.parent().find('li').removeClass('highlight');
     this.$el.addClass('highlight');
-    $('#quote').find('p').hide().html(this.model.body).fadeIn();
+    $('#quote').find('p').hide().html(this.model.get("body")).fadeIn();
   }
 });
