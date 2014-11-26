@@ -1,0 +1,64 @@
+* { box-sizing: border-box; }
+
+body,
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: block;
+  padding: 1em;
+  border-bottom: 1px solid gray;
+}
+
+li span {
+  float: right;
+  font-weight: bold;
+}
+
+body {
+  width: 100%;
+}
+
+#newQuote {
+  padding: .5em;
+  background-color: teal;
+}
+
+#container > div {
+  display: inline-block;
+  vertical-align:top; 
+}
+
+#sidebar {
+  background-color: pink;
+  width: 30%;
+}
+
+#quote {
+  background-color: tomato;
+  width: 70%;
+  height: 100%;
+}
+
+#quote div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;  
+}
+
+#quote > div > p {
+  font-size: 4em;
+  background-color: orange;
+}
+
+.highlight {
+  background-color: yellow;
+}
+
