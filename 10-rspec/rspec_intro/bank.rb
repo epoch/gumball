@@ -24,4 +24,8 @@ class Bank
   def deposit(name, amount)
     @accounts[name] += amount
   end
+
+  def withdraw(name, amount)
+    @accounts[name] -= amount if amount <= @accounts[name]
+  end
 end
