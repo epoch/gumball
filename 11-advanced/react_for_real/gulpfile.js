@@ -3,7 +3,6 @@ var connect = require('gulp-connect');
 var browserify = require('gulp-browserify');
 var concat = require('gulp-concat');
 
-
 gulp.task('webserver', function() {
   connect.server({
     livereload: true
@@ -13,7 +12,8 @@ gulp.task('webserver', function() {
 gulp.task('browserify', function() {
   gulp.src('js/app.js')
     .pipe(browserify({ transform: 'reactify' }))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('dist'))
+    .pipe(connect.reload());
 });
 
 gulp.task('watch', function() {
