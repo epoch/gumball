@@ -1,0 +1,44 @@
+@import "bourbon/bourbon";
+@import "neat/neat";
+
+$grid-columns: 4;
+$desktop: new-breakpoint(min-width 40em 12);
+
+.container {
+  margin-bottom: 1em;
+
+  @include outer-container(100%);
+
+  aside {
+    background-color: tomato;
+    @include span-columns(4);
+
+    @include media($desktop) {
+      @include span-columns(6);
+    }
+  }
+
+  main {
+    background-color: pink;
+    @include span-columns(4);
+
+    @include media($desktop) {
+      @include span-columns(6);
+    }
+  }
+}
+
+.seats {
+  @include outer-container(100%);
+
+  div {
+    background-color: yellow;
+    @include span-columns(4);
+    margin-bottom: 1em;
+
+    @include media($desktop) {
+      @include span-columns(3);
+      @include omega(4n);
+    }
+  }
+}
