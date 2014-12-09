@@ -1,0 +1,101 @@
+/* Neat 1.7.0
+ * http://neat.bourbon.io
+ * Copyright 2012-2014 thoughtbot, inc.
+ * MIT License */
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
+
+header {
+  background-color: #ffcccc;
+  height: 1em; }
+
+.container {
+  margin-bottom: 1em;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+  .container:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .container aside {
+    background-color: #b22323;
+    background-image: -webkit-linear-gradient(left, #b22323 0%, #e0762a 100%);
+    background-image: linear-gradient(to right,#b22323 0%, #e0762a 100%);
+    float: left;
+    display: block;
+    margin-right: 16.03631%;
+    width: 100%; }
+    .container aside:last-child {
+      margin-right: 0; }
+    @media screen and (min-width: 40em) {
+      .container aside {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 48.82117%; }
+        .container aside:last-child {
+          margin-right: 0; } }
+  .container main {
+    background-color: #ff6666;
+    float: left;
+    display: block;
+    margin-right: 16.03631%;
+    width: 100%; }
+    .container main:last-child {
+      margin-right: 0; }
+    @media screen and (min-width: 40em) {
+      .container main {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 48.82117%; }
+        .container main:last-child {
+          margin-right: 0; } }
+
+.seats {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+  .seats:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .seats div {
+    background-color: #ff9999;
+    float: left;
+    display: block;
+    margin-right: 16.03631%;
+    width: 41.98184%;
+    margin-bottom: 1em; }
+    .seats div:last-child {
+      margin-right: 0; }
+    .seats div:nth-child(2n) {
+      margin-right: 0; }
+    .seats div:nth-child(2n+1) {
+      clear: left; }
+    @media screen and (min-width: 40em) {
+      .seats div {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 23.23176%; }
+        .seats div:nth-child(2n) {
+          margin-right: 2.35765%; }
+        .seats div:nth-child(2n+1) {
+          clear: none; }
+        .seats div:last-child {
+          margin-right: 0; }
+        .seats div:nth-child(4n) {
+          margin-right: 0; }
+        .seats div:nth-child(4n+1) {
+          clear: left; } }
+
+/*# sourceMappingURL=style.css.map */

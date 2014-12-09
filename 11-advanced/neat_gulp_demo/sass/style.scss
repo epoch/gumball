@@ -1,0 +1,59 @@
+@import "bourbon/bourbon";
+@import "neat/neat";
+
+$primary-color: red;
+
+@mixin omega-reset($nth) {
+  &:nth-child(#{$nth}) { margin-right: flex-gutter($grid-columns, $gutter); }
+  &:nth-child(#{$nth}+1) { clear: none }
+}
+
+$grid-columns: 2;
+$desktop: new-breakpoint(min-width 40em 12);
+
+header {
+  background-color: lighten($primary-color, 40%);
+  height: 1em;
+}
+
+.container {
+  margin-bottom: 1em;
+
+  @include outer-container(100%);
+
+  aside {
+    @include linear-gradient(left, #b22323 0%, #e0762a 100%);
+    @include span-columns(2);
+
+    @include media($desktop) {
+      @include span-columns(6);
+    }
+  }
+
+  main {
+    background-color: lighten($primary-color, 20%);
+    @include span-columns(2);
+
+    @include media($desktop) {
+      @include span-columns(6);
+    }
+  }
+}
+
+.seats {
+  @include outer-container(100%);
+
+  div {
+    background-color: lighten($primary-color, 30%);
+    @include span-columns(1);
+    @include omega(2n);
+    margin-bottom: 1em;
+
+    @include media($desktop) {
+
+      @include omega-reset(2n);
+      @include span-columns(3);
+      @include omega(4n);
+    }
+  }
+}
