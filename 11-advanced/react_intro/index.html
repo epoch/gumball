@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>react intro</title>
+  <script src="http://fb.me/JSXTransformer-0.12.1.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.12.1/react-with-addons.js"></script>  
+</head>
+<body>
+
+  <div id="app"></div>
+
+
+  <script type="text/jsx">
+
+    var HelloMessage = React.createClass({
+      render: function() {
+        return <div>Hello {this.props.name}</div>; 
+      }
+    });
+
+
+    React.render(<HelloMessage name="DT" />, document.getElementById('app'));
+
+  </script>
+
+</body>
+</html>
